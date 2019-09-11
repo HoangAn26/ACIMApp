@@ -6,6 +6,7 @@ descendant and as Domain Component interfaces.
 
 Relevant Documentation
 --For new branch 
+--Test new branch
 
 Business Model Design
 https://docs.devexpress.com/eXpressAppFramework/112600
