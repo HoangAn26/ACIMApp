@@ -116,6 +116,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessObjects\CapNhatMau.cs" />
+    <Compile Include="BusinessObjects\EmployeeRole.cs" />
+    <Compile Include="BusinessObjects\LanThemGiay.cs" />
+    <Compile Include="BusinessObjects\MauIn.cs" />
+    <Compile Include="BusinessObjects\NguoiDung.cs" />
+    <Compile Include="BusinessObjects\Printer.cs" />
+    <Compile Include="BusinessObjects\UserInfo.cs" />
     <Compile Include="DatabaseUpdate\Updater.cs" />
     <Compile Include="Module.cs">
       <SubType>Component</SubType>
@@ -152,4 +159,3 @@
   </Target>
   -->
 </Project>
-
