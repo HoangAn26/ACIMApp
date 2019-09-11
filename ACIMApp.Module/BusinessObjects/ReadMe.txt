@@ -5,6 +5,7 @@ code. In XAF, a business object can be implemented as a base persistent class
 descendant and as Domain Component interfaces.
 
 Relevant Documentation
+--For new branch 
 
 Business Model Design
 https://docs.devexpress.com/eXpressAppFramework/112600
