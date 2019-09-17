@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 
 namespace ACIMApp.Module.BusinessObjects
 {
+    [DefaultClassOptions]
     [Persistent("UserInfo")]
     [DefaultProperty("TenNguoiDung")]
     [XafDisplayName("Người Dùng")]
@@ -46,9 +47,9 @@ namespace ACIMApp.Module.BusinessObjects
             get => _tenNguoiDung;
             set => SetPropertyValue("tenNguoiDung", ref _tenNguoiDung, value);
         }
-        int _MSSV;
+        string _MSSV;
         [XafDisplayName("MSSV")]
-        public int MSSV
+        public string MSSV
         {
             get => _MSSV;
             set => SetPropertyValue("MSSV", ref _MSSV, value);

@@ -14,7 +14,7 @@ using System.Text;
 
 namespace ACIMApp.Module.BusinessObjects
 {
-    [DefaultProperty("nhanVien")]
+    [DefaultProperty("thanhVien")]
     [Persistent(@"NguoiDungs")]
     [XafDisplayName("Người Dùng")]
     [DefaultClassOptions]
