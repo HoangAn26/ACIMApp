@@ -310,6 +310,10 @@
       <Name>ACIMApp.Module</Name>
       <Private>True</Private>
     </ProjectReference>
+    <ProjectReference Include="E:\Documents\XungKichTeam\App\HRApp_XKTeam_V1\HyperLinkPropertyEditor.Win\HyperLinkPropertyEditor.Win.csproj">
+      <Project>{B8003A32-5D6C-49C5-9216-6BF42EDB83BD}</Project>
+      <Name>HyperLinkPropertyEditor.Win</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

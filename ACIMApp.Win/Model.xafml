@@ -1,7 +1,62 @@
-﻿<Application Logo="ExpressAppLogo">
-	<Options UIType="TabbedMDI" FormStyle="Ribbon" />
-	<NavigationItems NavigationStyle="Accordion" ShowImages="False" DefaultChildItemsDisplayStyle="List"/>
-	<Options ShowTabImage="False">
-		<LayoutManagerOptions EnableLayoutGroupImages="False" />
-	</Options>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Logo="ExpressAppLogo">
+  <NavigationItems NavigationStyle="Accordion" ShowImages="False" DefaultChildItemsDisplayStyle="List" />
+  <Options UIType="TabbedMDI" FormStyle="Ribbon" ShowTabImage="False">
+    <LayoutManagerOptions EnableLayoutGroupImages="False" />
+  </Options>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="19.1.3.0" IsNewNode="True" />
+    <SchemaModule Name="SystemWindowsFormsModule" Version="19.1.3.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <DetailView Id="UserInfo_DetailView" EnableLayoutGroupImages="True" DefaultFocusedItem="TenNguoiDung">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="UserInfo" RelativeSize="100">
+              <LayoutGroup Id="UserInfo_col1" RelativeSize="51.603498542274053">
+                <LayoutItem Id="STT" RelativeSize="9.1428571428571424" />
+                <LayoutItem Id="TenNguoiDung" RelativeSize="6.8571428571428568" />
+                <LayoutItem Id="ngaySinh" ViewItem="ngaySinh" Index="2" RelativeSize="6.8571428571428568" IsNewNode="True" />
+                <LayoutGroup Id="Auto6164ba3e-260e-413c-b552-9d152d58ff22" ShowCaption="False" Caption="" Direction="Horizontal" Index="3" RelativeSize="6.8571428571428568" IsNewNode="True">
+                  <LayoutItem Id="khoa" ViewItem="khoa" Index="0" RelativeSize="61.864406779661017" IsNewNode="True" />
+                  <LayoutItem Id="MSSV" ViewItem="MSSV" Index="1" RelativeSize="38.135593220338983" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutItem Id="MSSV" RelativeSize="6.9565217391304346" Index="3" Removed="True" />
+                <LayoutItem Id="khoa" RelativeSize="6.9565217391304346" Index="4" Removed="True" />
+                <LayoutItem Id="SDT" RelativeSize="6.8571428571428568" Index="4" />
+                <LayoutItem Id="email" ViewItem="email" Index="5" RelativeSize="6.8571428571428568" IsNewNode="True" />
+                <SeparatorItem Id="Item1" Index="6" RelativeSize="1.7142857142857142" IsNewNode="True" />
+                <LayoutItem Id="ghiChu" ViewItem="ghiChu" Index="7" RelativeSize="54.857142857142854" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="UserInfo_col2" RelativeSize="48.396501457725947" Caption="UserInfo_col2" Direction="Horizontal">
+                <LayoutItem Id="ngaySinh" Index="0" RelativeSize="9.1428571428571424" Removed="True" />
+                <SplitterItem Id="SplitterItem1" Index="0" RelativeSize="1.8072289156626507" IsNewNode="True" />
+                <LayoutItem Id="anh" ViewItem="anh" CaptionLocation="Top" Index="1" RelativeSize="97.61904761904762" SizeConstraintsType="Default" Removed="True" />
+                <LayoutItem Id="ghiChu" Index="1" RelativeSize="9.1428571428571424" Removed="True" />
+                <TabbedGroup Id="Item3" CaptionLocation="Top" Index="1" RelativeSize="98.192771084337352" IsNewNode="True">
+                  <LayoutGroup Id="Item2" ShowCaption="True" CaptionLocation="Top" Index="0" RelativeSize="100" Caption="Ảnh Đại Diện" TextAlignMode="AlignWithChildren" IsNewNode="True">
+                    <LayoutItem Id="anh" ViewItem="anh" CaptionLocation="Top" Index="0" RelativeSize="100" ShowCaption="False" TextAlignMode="AutoSize" IsNewNode="True" />
+                  </LayoutGroup>
+                </TabbedGroup>
+                <LayoutItem Id="email" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="UserInfo_ListView" MasterDetailMode="ListViewOnly">
+      <Columns>
+        <ColumnInfo Id="STT" Index="0" />
+        <ColumnInfo Id="TenNguoiDung" Index="1" />
+        <ColumnInfo Id="MSSV" Index="2" />
+        <ColumnInfo Id="khoa" Index="3" />
+        <ColumnInfo Id="SDT" Index="4" />
+        <ColumnInfo Id="email" Index="5" />
+        <ColumnInfo Id="ngaySinh" Index="6" />
+        <ColumnInfo Id="ghiChu" Index="7" />
+      </Columns>
+    </ListView>
+  </Views>
 </Application>

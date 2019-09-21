@@ -3,7 +3,9 @@ using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
+using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
+using DevExpress.Xpo.Metadata;
 using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
@@ -19,7 +21,7 @@ namespace ACIMApp.Module.BusinessObjects
     [DefaultClassOptions]
     [Persistent("UserInfo")]
     [DefaultProperty("TenNguoiDung")]
-    [XafDisplayName("Người Dùng")]
+    [XafDisplayName("Thông Tin Người Dùng")]
     public class UserInfo : XPLiteObject
     {
         public UserInfo(Session session) : base(session) { }
@@ -31,7 +33,6 @@ namespace ACIMApp.Module.BusinessObjects
         {
             base.OnSaving();
         }
-
         int _STT;
         [XafDisplayName("STT")]
         [Key(true)]
@@ -48,7 +49,7 @@ namespace ACIMApp.Module.BusinessObjects
             set => SetPropertyValue("tenNguoiDung", ref _tenNguoiDung, value);
         }
         string _MSSV;
-        [XafDisplayName("MSSV")]
+        [XafDisplayName("MSSV/MSNV")]
         public string MSSV
         {
             get => _MSSV;
@@ -88,9 +89,18 @@ namespace ACIMApp.Module.BusinessObjects
             get => _khoa;
             set => SetPropertyValue("khoa", ref _khoa, value);
         }
+        string _SDT;
+        [XafDisplayName("Số Điện Thoại")]
+        public string SDT
+        {
+            get => _SDT;
+            set => SetPropertyValue("SDT", ref _SDT, value);
+        }
         //No have Hyper Link
         string _email;
         [XafDisplayName("Email")]
+        [RuleRegularExpression("HyperLinkDemoObject.Url.RuleRegularExpression", DefaultContexts.Save, @"(((http|https|ftp)\://)?[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(:[a-zA-Z0-9]*)?/?([a-zA-Z0-9\-\._\?\,\'/\\\+&amp;amp;%\$#\=~])*)|([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})")]
+        [EditorAlias("HyperLinkStringPropertyEditor")]
         public string email
         {
             get => _email;
@@ -98,17 +108,22 @@ namespace ACIMApp.Module.BusinessObjects
         }
         DateTime? _ngaySinh;
         [XafDisplayName("Ngày Sinh")]
+        [ModelDefault("DisplayFormat", "{0:dd/MM/yyyy}")]
+        [ModelDefault("EditMask", "dd/MM/yyyy")]
         public DateTime? ngaySinh
         {
             get => _ngaySinh;
             set => SetPropertyValue("ngaySinh", ref _ngaySinh, value);
         }
-        Image _anh;
-        [XafDisplayName("Ảnh Cá Nhân")]
+        [Size(SizeAttribute.Unlimited)]
+        [VisibleInListView(false)]
+        [ImageEditor(ListViewImageEditorMode =ImageEditorMode.PictureEdit, DetailViewImageEditorMode =ImageEditorMode.PictureEdit)]
+        [ValueConverter(typeof(ImageValueConverter))]
+        [XafDisplayName("Ảnh Đại Diện")]
         public Image anh
         {
-            get => _anh;
-            set => SetPropertyValue("anh", ref _anh, value);
+            get { return GetPropertyValue<Image>("anh"); }
+            set { SetPropertyValue<Image>("anh", value); }
         }
         string _ghiChu;
         [XafDisplayName("Ghi Chú")]

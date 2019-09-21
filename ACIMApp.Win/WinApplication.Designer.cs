@@ -25,11 +25,7 @@
         private void InitializeComponent() {
             this.module1 = new DevExpress.ExpressApp.SystemModule.SystemModule();
             this.module2 = new DevExpress.ExpressApp.Win.SystemModule.SystemWindowsFormsModule();
-            this.module3 = new ACIMApp.Module.ACIMAppModule();
             this.module4 = new ACIMApp.Module.Win.ACIMAppWindowsFormsModule();
-            this.securityModule1 = new DevExpress.ExpressApp.Security.SecurityModule();
-            this.securityStrategyComplex1 = new DevExpress.ExpressApp.Security.SecurityStrategyComplex();
-            this.authenticationStandard1 = new DevExpress.ExpressApp.Security.AuthenticationStandard();
             this.objectsModule = new DevExpress.ExpressApp.Objects.BusinessClassLibraryCustomizationModule();
             this.fileAttachmentsWindowsFormsModule = new DevExpress.ExpressApp.FileAttachments.Win.FileAttachmentsWindowsFormsModule();
             this.pivotChartModuleBase = new DevExpress.ExpressApp.PivotChart.PivotChartModuleBase();
@@ -40,19 +36,14 @@
             this.reportsWindowsFormsModuleV2 = new DevExpress.ExpressApp.ReportsV2.Win.ReportsWindowsFormsModuleV2();
             this.validationModule = new DevExpress.ExpressApp.Validation.ValidationModule();
             this.validationWindowsFormsModule = new DevExpress.ExpressApp.Validation.Win.ValidationWindowsFormsModule();
+            this.module3 = new ACIMApp.Module.ACIMAppModule();
+            this.securityModule1 = new DevExpress.ExpressApp.Security.SecurityModule();
+            this.securityStrategyComplex1 = new DevExpress.ExpressApp.Security.SecurityStrategyComplex();
+            this.authenticationStandard1 = new DevExpress.ExpressApp.Security.AuthenticationStandard();
+            this.acimAppModule1 = new ACIMApp.Module.ACIMAppModule();
+            this.hyperLinkPropertyEditorWindowsFormsModule1 = new HyperLinkPropertyEditor.Win.HyperLinkPropertyEditorWindowsFormsModule();
+            this.acimAppModule2 = new ACIMApp.Module.ACIMAppModule();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
-            // 
-            // securityStrategyComplex1
-            // 
-            this.securityStrategyComplex1.AllowAnonymousAccess = false;
-            this.securityStrategyComplex1.Authentication = this.authenticationStandard1;
-            this.securityStrategyComplex1.RoleType = typeof(ACIMApp.Module.BusinessObjects.EmployeeRole);
-            this.securityStrategyComplex1.SupportNavigationPermissionsForTypes = false;
-            this.securityStrategyComplex1.UserType = typeof(ACIMApp.Module.BusinessObjects.NguoiDung);
-            // 
-            // authenticationStandard1
-            // 
-            this.authenticationStandard1.LogonParametersType = typeof(DevExpress.ExpressApp.Security.AuthenticationStandardLogonParameters);
             // 
             // pivotChartModuleBase
             // 
@@ -69,6 +60,18 @@
             // 
             this.validationModule.AllowValidationDetailsAccess = true;
             this.validationModule.IgnoreWarningAndInformationRules = false;
+            // 
+            // securityStrategyComplex1
+            // 
+            this.securityStrategyComplex1.AllowAnonymousAccess = false;
+            this.securityStrategyComplex1.Authentication = this.authenticationStandard1;
+            this.securityStrategyComplex1.RoleType = typeof(ACIMApp.Module.BusinessObjects.EmployeeRole);
+            this.securityStrategyComplex1.SupportNavigationPermissionsForTypes = false;
+            this.securityStrategyComplex1.UserType = typeof(ACIMApp.Module.BusinessObjects.NguoiDung);
+            // 
+            // authenticationStandard1
+            // 
+            this.authenticationStandard1.LogonParametersType = typeof(DevExpress.ExpressApp.Security.AuthenticationStandardLogonParameters);
             // 
             // ACIMAppWindowsFormsApplication
             // 
@@ -89,6 +92,7 @@
             this.Modules.Add(this.validationWindowsFormsModule);
             this.Modules.Add(this.module4);
             this.Modules.Add(this.securityModule1);
+            this.Modules.Add(this.hyperLinkPropertyEditorWindowsFormsModule1);
             this.Security = this.securityStrategyComplex1;
             this.UseOldTemplates = false;
             this.DatabaseVersionMismatch += new System.EventHandler<DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs>(this.ACIMAppWindowsFormsApplication_DatabaseVersionMismatch);
@@ -116,5 +120,8 @@
         private DevExpress.ExpressApp.ReportsV2.Win.ReportsWindowsFormsModuleV2 reportsWindowsFormsModuleV2;
         private DevExpress.ExpressApp.Validation.ValidationModule validationModule;
         private DevExpress.ExpressApp.Validation.Win.ValidationWindowsFormsModule validationWindowsFormsModule;
+        private Module.ACIMAppModule acimAppModule1;
+        private HyperLinkPropertyEditor.Win.HyperLinkPropertyEditorWindowsFormsModule hyperLinkPropertyEditorWindowsFormsModule1;
+        private Module.ACIMAppModule acimAppModule2;
     }
 }
