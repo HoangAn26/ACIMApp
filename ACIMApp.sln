@@ -19,8 +19,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACIMApp.Win", "ACIMApp.Win\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyperLinkPropertyEditor.Win", "E:\Documents\XungKichTeam\App\HRApp_XKTeam_V1\HyperLinkPropertyEditor.Win\HyperLinkPropertyEditor.Win.csproj", "{B8003A32-5D6C-49C5-9216-6BF42EDB83BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLyKho", "UserUIACIM\QuanLyKho\QuanLyKho\QuanLyKho.csproj", "{FFA371E7-48A0-4551-965D-DE143E01431C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -76,12 +74,6 @@ Global
 		{B8003A32-5D6C-49C5-9216-6BF42EDB83BD}.EasyTest|Any CPU.Build.0 = Release|Any CPU
 		{B8003A32-5D6C-49C5-9216-6BF42EDB83BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8003A32-5D6C-49C5-9216-6BF42EDB83BD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FFA371E7-48A0-4551-965D-DE143E01431C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FFA371E7-48A0-4551-965D-DE143E01431C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FFA371E7-48A0-4551-965D-DE143E01431C}.EasyTest|Any CPU.ActiveCfg = Release|Any CPU
-		{FFA371E7-48A0-4551-965D-DE143E01431C}.EasyTest|Any CPU.Build.0 = Release|Any CPU
-		{FFA371E7-48A0-4551-965D-DE143E01431C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FFA371E7-48A0-4551-965D-DE143E01431C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

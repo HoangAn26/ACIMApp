@@ -72,9 +72,9 @@
             // 
             this.labelStatus.Location = new System.Drawing.Point(75, 253);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(132, 13);
+            this.labelStatus.Size = new System.Drawing.Size(50, 13);
             this.labelStatus.TabIndex = 7;
-            this.labelStatus.Text = "Hệ thống đang khởi động...\r\n";
+            this.labelStatus.Text = "Starting...";
             // 
             // peImage
             // 
@@ -110,7 +110,7 @@
             this.pcApplicationName.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pcApplicationName.Controls.Add(this.labelSubtitle);
             this.pcApplicationName.Controls.Add(this.labelApplicationName);
-            this.pcApplicationName.Dock = System.Windows.Forms.DockStyle.Top;
+			this.pcApplicationName.Dock = System.Windows.Forms.DockStyle.Top;
             this.pcApplicationName.Location = new System.Drawing.Point(1, 1);
             this.pcApplicationName.LookAndFeel.UseDefaultLookAndFeel = false;
             this.pcApplicationName.Name = "pcApplicationName";
