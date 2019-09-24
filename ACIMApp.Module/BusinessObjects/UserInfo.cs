@@ -48,6 +48,19 @@ namespace ACIMApp.Module.BusinessObjects
             get => _tenNguoiDung;
             set => SetPropertyValue("tenNguoiDung", ref _tenNguoiDung, value);
         }
+        public enum GioiTinh
+        {
+            Nam = 0,
+            [XafDisplayName("Nữ")]
+            Nu = 1
+        }
+        GioiTinh _gioiTinh;
+        [XafDisplayName("Giới Tính")]
+        public GioiTinh gioiTinh
+        {
+            get => _gioiTinh;
+            set => SetPropertyValue("gioiTinh", ref _gioiTinh, value);
+        }
         string _MSSV;
         [XafDisplayName("MSSV/MSNV")]
         public string MSSV
@@ -77,10 +90,12 @@ namespace ACIMApp.Module.BusinessObjects
             DauKhi=8,
             [XafDisplayName("MÔI TRƯỜNG VÀ TÀI NGUYÊN")]
             MoiTruong=9,
+            [XafDisplayName("QUẢN LÝ CÔNG NGHIỆP")]
+            QuanLyCongNghiep = 10,
             [XafDisplayName("TRUNG TÂM BẢO DƯỠNG CÔNG NGHIỆP")]
-            BaoDuongCongNghiep=10,
+            BaoDuongCongNghiep=11,
             [XafDisplayName("KỸ SƯ CHẤT LƯỢNG CAO PFIEV")]
-            ChatLuongCao=11
+            ChatLuongCao=12
         };
         Khoa _khoa;
         [XafDisplayName("Khoa")]
