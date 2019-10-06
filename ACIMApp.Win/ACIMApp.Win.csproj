@@ -269,6 +269,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ExpressApp.ico" />
+    <Content Include="Model_vi.xafml">
+      <DependentUpon>Model.xafml</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="UnusableNodes.xml">
       <DependentUpon>Model.xafml</DependentUpon>
       <SubType>Designer</SubType>

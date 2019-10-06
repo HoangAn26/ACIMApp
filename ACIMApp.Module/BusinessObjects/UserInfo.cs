@@ -21,7 +21,7 @@ namespace ACIMApp.Module.BusinessObjects
     [DefaultClassOptions]
     [Persistent("UserInfo")]
     [DefaultProperty("TenNguoiDung")]
-    [XafDisplayName("Thông Tin Người Dùng")]
+    [XafDisplayName("User Information")]
     public class UserInfo : XPLiteObject
     {
         public UserInfo(Session session) : base(session) { }
@@ -34,7 +34,7 @@ namespace ACIMApp.Module.BusinessObjects
             base.OnSaving();
         }
         int _STT;
-        [XafDisplayName("STT")]
+        [XafDisplayName("ID")]
         [Key(true)]
         public int STT
         {
@@ -42,7 +42,7 @@ namespace ACIMApp.Module.BusinessObjects
             set => SetPropertyValue("STT", ref _STT, value);
         }
         string _tenNguoiDung;
-        [XafDisplayName("Họ Và Tên")]
+        [XafDisplayName("Name")]
         public string TenNguoiDung
         {
             get => _tenNguoiDung;
@@ -50,19 +50,20 @@ namespace ACIMApp.Module.BusinessObjects
         }
         public enum GioiTinh
         {
+            [XafDisplayName("Male")]
             Nam = 0,
-            [XafDisplayName("Nữ")]
+            [XafDisplayName("Female")]
             Nu = 1
         }
         GioiTinh _gioiTinh;
-        [XafDisplayName("Giới Tính")]
+        [XafDisplayName("Gender")]
         public GioiTinh gioiTinh
         {
             get => _gioiTinh;
             set => SetPropertyValue("gioiTinh", ref _gioiTinh, value);
         }
         string _MSSV;
-        [XafDisplayName("MSSV/MSNV")]
+        [XafDisplayName("Student ID")]
         public string MSSV
         {
             get => _MSSV;
@@ -98,14 +99,14 @@ namespace ACIMApp.Module.BusinessObjects
             ChatLuongCao=12
         };
         Khoa _khoa;
-        [XafDisplayName("Khoa")]
+        [XafDisplayName("Faculty")]
         public Khoa khoa
         {
             get => _khoa;
             set => SetPropertyValue("khoa", ref _khoa, value);
         }
         string _SDT;
-        [XafDisplayName("Số Điện Thoại")]
+        [XafDisplayName("Phone Number")]
         public string SDT
         {
             get => _SDT;
@@ -122,7 +123,7 @@ namespace ACIMApp.Module.BusinessObjects
             set => SetPropertyValue("email", ref _email, value);
         }
         DateTime? _ngaySinh;
-        [XafDisplayName("Ngày Sinh")]
+        [XafDisplayName("Birthday")]
         [ModelDefault("DisplayFormat", "{0:dd/MM/yyyy}")]
         [ModelDefault("EditMask", "dd/MM/yyyy")]
         public DateTime? ngaySinh
@@ -134,14 +135,14 @@ namespace ACIMApp.Module.BusinessObjects
         [VisibleInListView(false)]
         [ImageEditor(ListViewImageEditorMode =ImageEditorMode.PictureEdit, DetailViewImageEditorMode =ImageEditorMode.PictureEdit)]
         [ValueConverter(typeof(ImageValueConverter))]
-        [XafDisplayName("Ảnh Đại Diện")]
+        [XafDisplayName("Image")]
         public Image anh
         {
             get { return GetPropertyValue<Image>("anh"); }
             set { SetPropertyValue<Image>("anh", value); }
         }
         string _ghiChu;
-        [XafDisplayName("Ghi Chú")]
+        [XafDisplayName("Description")]
         public string ghiChu
         {
             get => _ghiChu;

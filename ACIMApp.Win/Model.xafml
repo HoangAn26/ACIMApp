@@ -1,7 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Logo="ExpressAppLogo">
-  <NavigationItems NavigationStyle="Accordion" ShowImages="False" DefaultChildItemsDisplayStyle="List" />
-  <Options UIType="TabbedMDI" FormStyle="Ribbon" ShowTabImage="False">
+  <ActionDesign>
+    <Actions>
+      <Action Id="Link" Caption="Link" />
+    </Actions>
+  </ActionDesign>
+  <NavigationItems NavigationStyle="TreeList" ShowImages="False" DefaultChildItemsDisplayStyle="List">
+    <Items>
+      <Item Id="Default" Caption="THÔNG TIN QUẢN LÝ" ImageName="BO_Document">
+        <Items>
+          <Item Id="@30740bc7-d57f-40ac-96e1-ae83a33ffe5e" Caption="Thông Tin Người" IsNewNode="True" />
+          <Item Id="MyDetails" Removed="True" />
+        </Items>
+      </Item>
+      <Item Id="Reports" Visible="False" />
+    </Items>
+  </NavigationItems>
+  <Options UIType="TabbedMDI" FormStyle="Ribbon" ShowTabImage="False" Skin="The Bezier" Palette="Twenty Gold">
     <LayoutManagerOptions EnableLayoutGroupImages="False" />
   </Options>
   <SchemaModules>
@@ -39,7 +54,7 @@
                 <LayoutItem Id="anh" ViewItem="anh" CaptionLocation="Top" Index="1" RelativeSize="97.61904761904762" SizeConstraintsType="Default" Removed="True" />
                 <LayoutItem Id="ghiChu" Index="1" RelativeSize="9.1428571428571424" Removed="True" />
                 <TabbedGroup Id="Item3" CaptionLocation="Top" Index="1" RelativeSize="97.89473684210526" IsNewNode="True">
-                  <LayoutGroup Id="Item2" ShowCaption="True" CaptionLocation="Top" Index="0" RelativeSize="100" Caption="Ảnh Đại Diện" TextAlignMode="AlignWithChildren" IsNewNode="True">
+                  <LayoutGroup Id="Item2" ShowCaption="True" CaptionLocation="Top" Index="0" RelativeSize="100" TextAlignMode="AlignWithChildren" IsNewNode="True">
                     <LayoutItem Id="anh" ViewItem="anh" CaptionLocation="Top" Index="0" RelativeSize="100" ShowCaption="False" TextAlignMode="AutoSize" IsNewNode="True" />
                   </LayoutGroup>
                 </TabbedGroup>
@@ -53,8 +68,8 @@
     </DetailView>
     <ListView Id="UserInfo_ListView" MasterDetailMode="ListViewOnly" AllowEdit="True">
       <Columns>
-        <ColumnInfo Id="STT" Index="0" />
-        <ColumnInfo Id="TenNguoiDung" Index="1" />
+        <ColumnInfo Id="STT" Index="0" SortIndex="0" SortOrder="Ascending" />
+        <ColumnInfo Id="TenNguoiDung" Index="1" SortIndex="-1" SortOrder="None" />
         <ColumnInfo Id="MSSV" Index="2" />
         <ColumnInfo Id="khoa" Index="3" />
         <ColumnInfo Id="gioiTinh" Index="4" />

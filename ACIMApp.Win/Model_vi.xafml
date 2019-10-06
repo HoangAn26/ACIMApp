@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <ActionDesign>
+    <Actions>
+      <Action Id="Cancel" Caption="Hủy" />
+      <Action Id="CancelAction" Caption="Hủy" />
+      <Action Id="ChangePasswordByUser" ToolTip="Đổi Mật Khẩu" />
+      <Action Id="Close" Caption="Đóng" />
+      <Action Id="Delete" ToolTip="Xóa" ShortCaption="Xóa" />
+      <Action Id="Diagnostic Info" Caption="Chuẩn Đoán" />
+      <Action Id="DialogCancel" Caption="Hủy" />
+      <Action Id="DialogClose" Caption="Đóng" />
+      <Action Id="EditReportControllerV2.Edit" ToolTip="Sửa" />
+      <Action Id="Exit" ToolTip="Sửa" />
+      <Action Id="FullTextSearch" Caption="Lọc Theo Bản Văn" />
+      <Action Id="Link" Caption="Liên Kết" />
+      <Action Id="Logoff" Caption="Đăng Xuất" />
+      <Action Id="Logon" Caption="Đăng Nhập" />
+      <Action Id="NavigateBack" Caption="Quay Lại" />
+      <Action Id="NavigateForward" Caption="Chuyển Tiếp" />
+      <Action Id="New" Caption="Tạo Mới" />
+      <Action Id="Refresh" Caption="Làm Mới" />
+      <Action Id="RefreshAction" Caption="Làm Mới" />
+      <Action Id="ReportViewerDialogControllerV2_Close" Caption="Đóng" />
+      <Action Id="Save" Caption="Lưu" />
+      <Action Id="SaveAndClose" Caption="Lưu và Đóng" />
+      <Action Id="SaveAndNew" Caption="Lưu và Tạo Mới" />
+      <Action Id="SetFilter" Caption="Lọc" />
+      <Action Id="ShowNavigationItem" Caption="THANH BẢN CHỌN" />
+      <Action Id="Unlink" Caption="Ngắt Liên Kết" />
+    </Actions>
+  </ActionDesign>
+  <BOModel>
+    <Class Name="ACIMApp.Module.BusinessObjects.UserInfo">
+      <OwnMembers>
+        <Member Name="anh" Caption="Ảnh Đại Diện" />
+        <Member Name="ghiChu" Caption="Mô Tả" />
+        <Member Name="gioiTinh" Caption="Giới Tính" />
+        <Member Name="khoa" Caption="Khoa" />
+        <Member Name="MSSV" Caption="MSSV" />
+        <Member Name="ngaySinh" Caption="Ngày Sinh" />
+        <Member Name="SDT" Caption="Số Điện Thoại" />
+        <Member Name="STT" Caption="STT" />
+        <Member Name="TenNguoiDung" Caption="Họ và Tên" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.Security.ProceedMember">
+      <OwnMembers>
+        <Member Name="Name" Caption="Họ và Tên" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.SystemModule.AboutInfo">
+      <OwnMembers>
+        <Member Name="Description" Caption="Mô Tả" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.SystemModule.DashboardCreationInfo">
+      <OwnMembers>
+        <Member Name="DashboardName" Caption="Họ và Tên" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.SystemModule.DashboardName">
+      <OwnMembers>
+        <Member Name="ID" Caption="STT" />
+        <Member Name="Name" Caption="Họ và Tên" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.SystemModule.Notifications.PostponeTime">
+      <OwnMembers>
+        <Member Name="ID" Caption="STT" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.BaseImpl.Analysis">
+      <OwnMembers>
+        <Member Name="Name" Caption="Họ và Tên" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.BaseImpl.ModelDifferenceAspect">
+      <OwnMembers>
+        <Member Name="Name" Caption="Họ và Tên" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRoleBase">
+      <OwnMembers>
+        <Member Name="Name" Caption="Họ và Tên" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.Validation.IRuleBaseProperties">
+      <OwnMembers>
+        <Member Name="Name" Caption="Họ và Tên" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.Validation.RuleBaseProperties">
+      <OwnMembers>
+        <Member Name="Name" Caption="Họ và Tên" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Localization>
+    <LocalizationGroup Name="DialogButtons">
+      <LocalizationItem Name="Close" Value="Đóng" />
+    </LocalizationGroup>
+    <LocalizationGroup Name="Enums">
+      <LocalizationGroup Name="ACIMApp.Module.BusinessObjects.UserInfo+GioiTinh">
+        <LocalizationItem Name="Nam" Value="Nam" />
+        <LocalizationItem Name="Nu" Value="Nữ" />
+      </LocalizationGroup>
+    </LocalizationGroup>
+  </Localization>
+  <NavigationItems NavigationCaption="THANH BẢN CHỌN" />
+  <Validation>
+    <Contexts>
+      <ValidationContext Id="Save" Caption="Lưu" />
+    </Contexts>
+  </Validation>
+  <Views>
+    <DetailView Id="AuthenticationStandardLogonParameters_DetailView" Caption="Đăng Nhập" />
+    <ListView Id="ModelDifference_Aspects_ListView">
+      <Columns>
+        <ColumnInfo Id="DisplayName" Caption="Họ và Tên" />
+      </Columns>
+    </ListView>
+    <DetailView Id="PermissionPolicyObjectPermissionsObject_DetailView">
+      <Items>
+        <PropertyEditor Id="DeleteState" Caption="Xóa" />
+      </Items>
+    </DetailView>
+    <ListView Id="PermissionPolicyObjectPermissionsObject_ListView">
+      <Columns>
+        <ColumnInfo Id="DeleteState" Caption="Xóa" />
+      </Columns>
+    </ListView>
+    <ListView Id="PermissionPolicyObjectPermissionsObject_LookupListView">
+      <Columns>
+        <ColumnInfo Id="DeleteState" Caption="Xóa" />
+      </Columns>
+    </ListView>
+    <ListView Id="PermissionPolicyRoleBase_TypePermissions_ListView">
+      <Columns>
+        <ColumnInfo Id="DeleteState" Caption="Xóa" />
+      </Columns>
+    </ListView>
+    <DetailView Id="PermissionPolicyTypePermissionObject_DetailView">
+      <Items>
+        <PropertyEditor Id="DeleteState" Caption="Xóa" />
+      </Items>
+    </DetailView>
+    <ListView Id="PermissionPolicyTypePermissionObject_ListView">
+      <Columns>
+        <ColumnInfo Id="DeleteState" Caption="Xóa" />
+      </Columns>
+    </ListView>
+    <ListView Id="PermissionPolicyTypePermissionObject_LookupListView">
+      <Columns>
+        <ColumnInfo Id="DeleteState" Caption="Xóa" />
+      </Columns>
+    </ListView>
+    <ListView Id="PermissionPolicyTypePermissionObject_ObjectPermissions_ListView">
+      <Columns>
+        <ColumnInfo Id="DeleteState" Caption="Xóa" />
+      </Columns>
+    </ListView>
+    <ListView Id="RuleSetValidationResultItem_ByTarget_ListView">
+      <Columns>
+        <ColumnInfo Id="ErrorMessage" Caption="Mô Tả" />
+      </Columns>
+    </ListView>
+    <DetailView Id="UserInfo_DetailView">
+      <Items>
+        <PropertyEditor Id="anh" Caption="Ảnh Đại Diện" />
+        <PropertyEditor Id="ghiChu" Caption="Mô Tả" />
+        <PropertyEditor Id="gioiTinh" Caption="Giới Tính" />
+        <PropertyEditor Id="khoa" Caption="Khoa" />
+        <PropertyEditor Id="MSSV" Caption="MSSV" />
+        <PropertyEditor Id="ngaySinh" Caption="Ngày Sinh" />
+        <PropertyEditor Id="SDT" Caption="Số Điện Thoại" />
+        <PropertyEditor Id="STT" Caption="STT" />
+        <PropertyEditor Id="TenNguoiDung" Caption="Họ và Tên" />
+      </Items>
+    </DetailView>
+  </Views>
+</Application>

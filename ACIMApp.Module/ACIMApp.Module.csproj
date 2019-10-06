@@ -123,6 +123,18 @@
     <Compile Include="BusinessObjects\NguoiDung.cs" />
     <Compile Include="BusinessObjects\Printer.cs" />
     <Compile Include="BusinessObjects\UserInfo.cs" />
+    <Compile Include="Controllers\ShowListViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\ShowListViewController.Designer.cs">
+      <DependentUpon>ShowListViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\SwitchLangue.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\SwitchLangue.Designer.cs">
+      <DependentUpon>SwitchLangue.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseUpdate\Updater.cs" />
     <Compile Include="Module.cs">
       <SubType>Component</SubType>
@@ -133,7 +145,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controllers\ShowListViewController.resx">
+      <DependentUpon>ShowListViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\SwitchLangue.resx">
+      <DependentUpon>SwitchLangue.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="BusinessObjects\ReadMe.txt" />
