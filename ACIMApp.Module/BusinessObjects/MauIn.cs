@@ -41,6 +41,23 @@ namespace ACIMApp.Module.BusinessObjects
             get => _ten;
             set => SetPropertyValue("Ten", ref _ten, value);
         }
+        DateTime? _ngayCapNhat;
+        [XafDisplayName("Thời GianCập Nhật")]
+        [ModelDefault("DisplayFormat", "{0:dd/MM/yyyy}")]
+        [ModelDefault("EditMask", "dd/MM/yyyy")]
+        public DateTime? ngayCapNhat
+        {
+            get => _ngayCapNhat;
+            set => SetPropertyValue("ngayCapNhat", ref _ngayCapNhat, value);
+        }
+        FileData _fileMau;
+        [XafDisplayName("Mẫu In")]
+        public FileData fileMau
+        {
+            get => _fileMau;
+            set => SetPropertyValue("fileMau", ref _fileMau, value);
+        }
+
         [Association("MauIn-CapNhatMaus")]
         [XafDisplayName("Lịch Sử Cập Nhật")]
         public XPCollection<CapNhatMau> lichSuCapNhat

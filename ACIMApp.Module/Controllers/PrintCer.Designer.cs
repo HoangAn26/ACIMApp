@@ -1,6 +1,6 @@
 ﻿namespace ACIMApp.Module.Controllers
 {
-    partial class ShowListViewController
+    partial class PrintCer
     {
         /// <summary>
         /// Required designer variable.
@@ -33,13 +33,13 @@
             // 
             // simpleAction1
             // 
-            this.simpleAction1.Caption = null;
+            this.simpleAction1.Caption = "In Giấy Chứng Nhận";
             this.simpleAction1.ConfirmationMessage = null;
-            this.simpleAction1.Id = "2ab34adf-b9b5-4199-ab20-9a87ab9848c3";
+            this.simpleAction1.Id = "PrintCer";
             this.simpleAction1.ToolTip = null;
             this.simpleAction1.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.simpleAction1_Execute);
             // 
-            // ShowListViewController
+            // PrintCer
             // 
             this.Actions.Add(this.simpleAction1);
 

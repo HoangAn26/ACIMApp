@@ -41,6 +41,7 @@
     <Reference Include="DevExpress.Data.v19.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="DevExpress.ExpressApp.FileAttachment.Win.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.ExpressApp.Objects.v19.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -68,6 +69,7 @@
     <Reference Include="DevExpress.ExpressApp.Xpo.v19.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="DevExpress.Office.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Persistent.Base.v19.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -80,6 +82,7 @@
     <Reference Include="DevExpress.Printing.v19.1.Core">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="DevExpress.RichEdit.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v19.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -89,6 +92,7 @@
     <Reference Include="DevExpress.XtraCharts.v19.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v19.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -123,17 +127,11 @@
     <Compile Include="BusinessObjects\NguoiDung.cs" />
     <Compile Include="BusinessObjects\Printer.cs" />
     <Compile Include="BusinessObjects\UserInfo.cs" />
-    <Compile Include="Controllers\ShowListViewController.cs">
+    <Compile Include="Controllers\PrintCer.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controllers\ShowListViewController.Designer.cs">
-      <DependentUpon>ShowListViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\SwitchLangue.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controllers\SwitchLangue.Designer.cs">
-      <DependentUpon>SwitchLangue.cs</DependentUpon>
+    <Compile Include="Controllers\PrintCer.Designer.cs">
+      <DependentUpon>PrintCer.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseUpdate\Updater.cs" />
     <Compile Include="Module.cs">
@@ -145,11 +143,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controllers\ShowListViewController.resx">
-      <DependentUpon>ShowListViewController.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controllers\SwitchLangue.resx">
-      <DependentUpon>SwitchLangue.cs</DependentUpon>
+    <EmbeddedResource Include="Controllers\PrintCer.resx">
+      <DependentUpon>PrintCer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
     <EmbeddedResource Include="Properties\licenses.licx" />

@@ -72,7 +72,7 @@ namespace ACIMApp.Module.BusinessObjects
         public enum Khoa
         {
             [XafDisplayName("ĐIỆN-ĐIỆN TỬ")]
-            MayDienDienTu=0,
+            DienDienTu=0,
             [XafDisplayName("KỸ THUẬT XÂY DỰNG")]
             XayDung=1,
             [XafDisplayName("CƠ KHÍ")]
@@ -98,12 +98,71 @@ namespace ACIMApp.Module.BusinessObjects
             [XafDisplayName("KỸ SƯ CHẤT LƯỢNG CAO PFIEV")]
             ChatLuongCao=12
         };
+        public string khoaString;
+
         Khoa _khoa;
         [XafDisplayName("Faculty")]
         public Khoa khoa
         {
             get => _khoa;
-            set => SetPropertyValue("khoa", ref _khoa, value);
+            set
+            {
+                SetPropertyValue("khoa", ref _khoa, value);
+                switch (_khoa)
+                {
+                    case Khoa.DienDienTu:
+                        khoaString = "ĐIỆN-ĐIỆN TỬ";
+                        break;
+                    case Khoa.XayDung:
+                        khoaString = "KỸ THUẬT XÂY DỰNG";
+                        break;
+                    case Khoa.CoKhi:
+                        khoaString = "CƠ KHÍ";
+                        break;
+                    case Khoa.HoaHoc:
+                        khoaString = "KỸ THUẬT HÓA HỌC";
+                        break;
+                    case Khoa.Maytinh:
+                        khoaString = "KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH";
+                        break;
+                    case Khoa.VatLieu:
+                        khoaString = "CÔNG NGHỆ VẬT LIỆU";
+                        break;
+                    case Khoa.UngDung:
+                        khoaString = "KHOA HỌC ỨNG DỤNG";
+                        break;
+                    case Khoa.GiaoThong:
+                        khoaString = "KỸ THUẬT GIAO THÔNG";
+                        break;
+                    case Khoa.DauKhi:
+                        khoaString = "KỸ THUẬT VÀ ĐỊA CHẤT DẦU KHÍ";
+                        break;
+                    case Khoa.MoiTruong:
+                        khoaString = "MÔI TRƯỜNG VÀ TÀI NGUYÊN";
+                        break;
+                    case Khoa.QuanLyCongNghiep:
+                        khoaString = "QUẢN LÝ CÔNG NGHIỆP";
+                        break;
+                    case Khoa.BaoDuongCongNghiep:
+                        khoaString = "TRUNG TÂM BẢO DƯỠNG CÔNG NGHIỆP";
+                        break;
+                    case Khoa.ChatLuongCao:
+                        khoaString = "KỸ SƯ CHẤT LƯỢNG CAO PFIEV";
+                        break;
+                }
+            }
+        }
+
+        
+        
+
+
+        string _diaChi;
+        [XafDisplayName("Địa Chỉ")]
+        public string diaChi
+        {
+            get => _diaChi;
+            set => SetPropertyValue("diaChi", ref _diaChi, value);
         }
         string _SDT;
         [XafDisplayName("Phone Number")]

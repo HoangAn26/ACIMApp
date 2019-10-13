@@ -33,7 +33,7 @@ namespace ACIMApp.Module.BusinessObjects
             set { SetPropertyValue<int>("Id", ref fId, value); }
         }
         UserInfo fThanhVien;
-        [XafDisplayName("Tên Nhân Viên")]
+        [XafDisplayName("Tên Người Dùng")]
         public UserInfo thanhVien
         {
             get { return fThanhVien; }
