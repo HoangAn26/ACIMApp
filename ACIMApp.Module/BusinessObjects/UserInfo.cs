@@ -14,6 +14,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DevExpress.ExpressApp.Editors;
 
 
 namespace ACIMApp.Module.BusinessObjects
@@ -98,8 +99,11 @@ namespace ACIMApp.Module.BusinessObjects
             [XafDisplayName("KỸ SƯ CHẤT LƯỢNG CAO PFIEV")]
             ChatLuongCao=12
         };
-        public string khoaString;
 
+        [VisibleInDetailView(false)]
+        [VisibleInListView(false)]
+        public string khoaString;
+        
         Khoa _khoa;
         [XafDisplayName("Faculty")]
         public Khoa khoa
@@ -153,12 +157,8 @@ namespace ACIMApp.Module.BusinessObjects
             }
         }
 
-        
-        
-
-
         string _diaChi;
-        [XafDisplayName("Địa Chỉ")]
+        [XafDisplayName("Address")]
         public string diaChi
         {
             get => _diaChi;

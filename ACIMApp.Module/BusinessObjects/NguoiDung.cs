@@ -16,7 +16,7 @@ namespace ACIMApp.Module.BusinessObjects
 {
     [DefaultProperty("thanhVien")]
     [Persistent(@"NguoiDungs")]
-    [XafDisplayName("Người Dùng")]
+    [XafDisplayName("Account")]
     [DefaultClassOptions]
     public class NguoiDung : XPLiteObject, ISecurityUser,
         IAuthenticationStandardUser, IAuthenticationActiveDirectoryUser,
@@ -33,7 +33,7 @@ namespace ACIMApp.Module.BusinessObjects
             set { SetPropertyValue<int>("Id", ref fId, value); }
         }
         UserInfo fThanhVien;
-        [XafDisplayName("Tên Người Dùng")]
+        [XafDisplayName("Name of User")]
         public UserInfo thanhVien
         {
             get { return fThanhVien; }
@@ -49,7 +49,7 @@ namespace ACIMApp.Module.BusinessObjects
             set { SetPropertyValue("IsActive", ref isActive, value); }
         }
         private string userName = String.Empty;//read only
-        [XafDisplayName("Tên Đăng Nhập")]
+        [XafDisplayName("User Name")]
         [RuleRequiredField("EmployeeUserNameRequired", DefaultContexts.Save)]
         [RuleUniqueValue("EmployeeUserNameIsUnique", DefaultContexts.Save,
             "Tên Đăng Nhập Đã Được Sử Dụng Vui Lòng Nhập Nội Dung Khác")]
@@ -139,5 +139,19 @@ namespace ACIMApp.Module.BusinessObjects
             throw new NotImplementedException();
         }
         #endregion
+        string _maTheRFID;
+        [XafDisplayName("RFID")]
+        public string maTheRFID
+        {
+            get => _maTheRFID;
+            set => SetPropertyValue("maTheRFID", ref _maTheRFID, value);
+        }
+        int _soLanIn;
+        [XafDisplayName("Number Of Times Printing")]
+        public int soLanIn
+        {
+            get => _soLanIn;
+            set => SetPropertyValue("soLanIn", ref _soLanIn, value);
+        }
     }
 }

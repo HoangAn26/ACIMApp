@@ -17,7 +17,7 @@ namespace ACIMApp.Module.BusinessObjects
 {
     [Persistent("CapNhatMau")]
     [DefaultProperty("NgayCapNhat")]
-    [XafDisplayName("Lần Cập Nhật")]
+    [XafDisplayName("Update Form")]
     public class CapNhatMau:XPLiteObject
     {
         public CapNhatMau(Session session) : base(session) { }
@@ -37,7 +37,7 @@ namespace ACIMApp.Module.BusinessObjects
 
         DateTime? _ngayCapNhat;
        
-        [XafDisplayName("Ngày Cập Nhật")]
+        [XafDisplayName("Update Time")]
         public DateTime? ngayCapNhat
         {
             get => _ngayCapNhat;
@@ -51,7 +51,7 @@ namespace ACIMApp.Module.BusinessObjects
             set => SetPropertyValue("mauIn", ref _mauIn, value);
         }
         string _ghiChu;
-        [XafDisplayName("Ghi Chú")]
+        [XafDisplayName("Notes")]
         public string ghiChu
         {
             get => _ghiChu;

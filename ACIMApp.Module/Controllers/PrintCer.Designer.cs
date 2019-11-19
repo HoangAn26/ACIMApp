@@ -33,11 +33,15 @@
             // 
             // simpleAction1
             // 
-            this.simpleAction1.Caption = "In Giấy Chứng Nhận";
+            this.simpleAction1.Caption = "Print Certificate";
             this.simpleAction1.ConfirmationMessage = null;
-            this.simpleAction1.Id = "PrintCer";
+            this.simpleAction1.Id = "PrintCertificate";
+            this.simpleAction1.TargetObjectsCriteria = "";
+            this.simpleAction1.TargetObjectType = typeof(ACIMApp.Module.BusinessObjects.MauIn);
+            this.simpleAction1.TargetViewType = DevExpress.ExpressApp.ViewType.ListView;
             this.simpleAction1.ToolTip = null;
-            this.simpleAction1.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.simpleAction1_Execute);
+            this.simpleAction1.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
+            this.simpleAction1.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.simpleAction1_Execute_1);
             // 
             // PrintCer
             // 

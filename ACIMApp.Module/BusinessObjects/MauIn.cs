@@ -5,6 +5,7 @@ using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
+using DevExpress.Xpo.Metadata;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +19,7 @@ namespace ACIMApp.Module.BusinessObjects
     [DefaultClassOptions]
     [Persistent("MauIn")]
     [DefaultProperty("Ten")]
-    [XafDisplayName("Quản Lý Mẫu In")]
+    [XafDisplayName("Printed Form Management")]
     public class MauIn: XPLiteObject
     {
         public MauIn(Session session) : base(session) { }
@@ -35,14 +36,14 @@ namespace ACIMApp.Module.BusinessObjects
             set => SetPropertyValue("id", ref _id, value);
         }
         string _ten;
-        [XafDisplayName("Tên Mẫu In")]
+        [XafDisplayName("Name of Printed Form")]
         public string Ten
         {
             get => _ten;
             set => SetPropertyValue("Ten", ref _ten, value);
         }
         DateTime? _ngayCapNhat;
-        [XafDisplayName("Thời GianCập Nhật")]
+        [XafDisplayName("Update Time")]
         [ModelDefault("DisplayFormat", "{0:dd/MM/yyyy}")]
         [ModelDefault("EditMask", "dd/MM/yyyy")]
         public DateTime? ngayCapNhat
@@ -51,15 +52,24 @@ namespace ACIMApp.Module.BusinessObjects
             set => SetPropertyValue("ngayCapNhat", ref _ngayCapNhat, value);
         }
         FileData _fileMau;
-        [XafDisplayName("Mẫu In")]
+        [XafDisplayName("Printed Form File")]
         public FileData fileMau
         {
             get => _fileMau;
             set => SetPropertyValue("fileMau", ref _fileMau, value);
         }
-
+        [Size(SizeAttribute.Unlimited)]
+        [VisibleInListView(false)]
+        [ImageEditor(ListViewImageEditorMode = ImageEditorMode.PictureEdit, DetailViewImageEditorMode = ImageEditorMode.PictureEdit)]
+        [ValueConverter(typeof(ImageValueConverter))]
+        [XafDisplayName("Image")]
+        public Image anhMauIn
+        {
+            get { return GetPropertyValue<Image>("anhMauIn"); }
+            set { SetPropertyValue<Image>("anhMauIn", value); }
+        }
         [Association("MauIn-CapNhatMaus")]
-        [XafDisplayName("Lịch Sử Cập Nhật")]
+        [XafDisplayName("Printed History")]
         public XPCollection<CapNhatMau> lichSuCapNhat
         {
             get => GetCollection<CapNhatMau>("lichSuCapNhat");

@@ -14,7 +14,6 @@
       <Action Id="Exit" ToolTip="Sửa" />
       <Action Id="FullTextSearch" Caption="Lọc Theo Bản Văn" />
       <Action Id="Link" Caption="Liên Kết" />
-      <Action Id="Logoff" Caption="Đăng Xuất" />
       <Action Id="Logon" Caption="Đăng Nhập" />
       <Action Id="NavigateBack" Caption="Quay Lại" />
       <Action Id="NavigateForward" Caption="Chuyển Tiếp" />
@@ -165,18 +164,5 @@
         <ColumnInfo Id="ErrorMessage" Caption="Mô Tả" />
       </Columns>
     </ListView>
-    <DetailView Id="UserInfo_DetailView">
-      <Items>
-        <PropertyEditor Id="anh" Caption="Ảnh Đại Diện" />
-        <PropertyEditor Id="ghiChu" Caption="Mô Tả" />
-        <PropertyEditor Id="gioiTinh" Caption="Giới Tính" />
-        <PropertyEditor Id="khoa" Caption="Khoa" />
-        <PropertyEditor Id="MSSV" Caption="MSSV" />
-        <PropertyEditor Id="ngaySinh" Caption="Ngày Sinh" />
-        <PropertyEditor Id="SDT" Caption="Số Điện Thoại" />
-        <PropertyEditor Id="STT" Caption="STT" />
-        <PropertyEditor Id="TenNguoiDung" Caption="Họ và Tên" />
-      </Items>
-    </DetailView>
   </Views>
 </Application>

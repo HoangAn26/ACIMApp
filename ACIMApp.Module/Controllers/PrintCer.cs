@@ -21,10 +21,13 @@ using DevExpress.Persistent.BaseImpl;
 using DevExpress.ExpressApp.FileAttachments.Win;
 using DevExpress.XtraRichEdit;
 using DevExpress.XtraRichEdit.Export;
+using DevExpress.XtraPrinting;
 using DevExpress.XtraRichEdit.API.Native;
-using DevExpress.XtraPrinting.Native;
-//using Word = Microsoft.Office.Interop.Word;
 
+using DevExpress.XtraPrinting.Native;
+using System.Windows.Forms;
+using DevExpress.Xpo;
+using Document = DevExpress.XtraRichEdit.API.Native.Document;
 
 namespace ACIMApp.Module.Controllers
 {
@@ -35,11 +38,15 @@ namespace ACIMApp.Module.Controllers
         {
             InitializeComponent();
             // Target required Views (via the TargetXXX properties) and create their Actions.
+            //TargetViewType = ViewType.ListView;
+            //TargetObjectType = typeof(ACIMApp.Module.BusinessObjects.MauIn);
+                       
         }
         protected override void OnActivated()
         {
             base.OnActivated();
             // Perform various tasks depending on the target View.
+            
         }
         protected override void OnViewControlsCreated()
         {
@@ -52,15 +59,12 @@ namespace ACIMApp.Module.Controllers
             base.OnDeactivated();
         }
 
-        private void popupWindowShowAction1_Execute(object sender, PopupWindowShowActionExecuteEventArgs e)
-        {
 
-        }
-
-        private void simpleAction1_Execute(object sender, SimpleActionExecuteEventArgs e)
+        private void simpleAction1_Execute_1(object sender, SimpleActionExecuteEventArgs e)
         {
             MauIn mauIn = (MauIn)View.CurrentObject;
             NguoiDung nguoiDung = mauIn.Session.GetObjectByKey<NguoiDung>(SecuritySystem.CurrentUserId);
+            
             //Name of files
             FileData chungNhan = mauIn.fileMau;
             string fileName = chungNhan.FileName;
@@ -68,31 +72,23 @@ namespace ACIMApp.Module.Controllers
             string fileNameSave = @"SaveFile\" + fileName;
 
             //Names of fields in files
-            string tenNguoiDung = nguoiDung.UserName;
+            //if (nguoiDung.thanhVien.TenNguoiDung != null) ;
+            string tenNguoiDung = nguoiDung.thanhVien.TenNguoiDung!=null? nguoiDung.thanhVien.TenNguoiDung:"";
             DateTime _ngaySinh = (DateTime)nguoiDung.thanhVien.ngaySinh;
-            string ngaySinh = _ngaySinh.ToString("dd-MM-yyyy");//Edit format of DateTime
-            //string ngaySinh = nguoiDung.thanhVien.ngaySinh.ToString();
-            string gioiTinh = nguoiDung.thanhVien.ToString();
-            string MSSV = nguoiDung.thanhVien.MSSV;
-            string khoa=nguoiDung.thanhVien.khoaString;
-            
-            //switch (nguoiDung.thanhVien.khoa)
-            //{
-            //    case UserInfo.Khoa.DienDienTu: khoa = "ĐIỆN-ĐIỆN TỬ";
-            //       break;
-            //    case UserInfo.Khoa.XayDung: khoa = "KỸ THUẬT XÂY DỰNG";
-            //        break;
-            //}
-            
-            string SDT = nguoiDung.thanhVien.SDT;
-            string email = nguoiDung.thanhVien.email;
-            string diaChi = nguoiDung.thanhVien.diaChi;
-            
-            //string filename = @"D:\StudyD\Apps\ACIMApp\123.docx";
+            string ngaySinh = _ngaySinh.ToString("dd-MM-yyyy") != null ? _ngaySinh.ToString("dd-MM-yyyy") : "";//Edit format of DateTime
+            string gioiTinh = nguoiDung.thanhVien.ToString() != null ? nguoiDung.thanhVien.ToString() : "";
+            string MSSV = nguoiDung.thanhVien.MSSV != null ? nguoiDung.thanhVien.MSSV : "";
+            string khoa = nguoiDung.thanhVien.khoaString != null ? nguoiDung.thanhVien.khoaString : "";
+            string SDT = nguoiDung.thanhVien.SDT != null ? nguoiDung.thanhVien.SDT : "";
+            string email = nguoiDung.thanhVien.email != null ? nguoiDung.thanhVien.email : "";
+            string diaChi = nguoiDung.thanhVien.diaChi != null ? nguoiDung.thanhVien.diaChi : "";
+
+            //int soLanIn = nguoiDung.soLanIn;
+
 
             using (RichEditDocumentServer srv = new RichEditDocumentServer())
             {
-                if(srv.LoadDocument(fileNameTemp, DocumentFormat.OpenXml))
+                if (srv.LoadDocument(fileNameTemp, DocumentFormat.OpenXml))
                 {
                     Document doc = srv.Document;
                     //tenNguoiDung
@@ -120,14 +116,39 @@ namespace ACIMApp.Module.Controllers
                     DocumentRange[] range7s = doc.FindAll("<diaChi>", SearchOptions.None);
                     for (int i = 0; i < range7s.Length; i++) doc.Replace(range7s[i], diaChi);
                 }
-
-                //DocumentRange[] ranges = doc.FindAll("<name>", SearchOptions.None);
                 srv.SaveDocument(fileNameSave, DocumentFormat.OpenXml);
+                //srv.Document.Sections[0].Page.Landscape = true;
+
+                //DevExpress.XtraPrinting.PrintableComponentLink link = new DevExpress.XtraPrinting.PrintableComponentLink(new DevExpress.XtraPrinting.PrintingSystem());
+
+                if (nguoiDung.soLanIn>0)
+                { 
+                    srv.Print();
+                    nguoiDung.soLanIn--;
+                    MessageBox.Show("You have "+ nguoiDung.soLanIn.ToString()+" more time(s) to PRINT");
+                    nguoiDung.Save();// lưu lại giá trị
+                }
+                else { MessageBox.Show("Your print time has run out!"); }
+                
+
+                //FileStream fsOut = File.Open("FileOut.pdf", FileMode.Create);
+                //srv.ExportToPdf(fsOut);
+                //fsOut.Close();
             }
-            PrintDialog print = new PrintDialog();
-            
-            System.Diagnostics.Process.Start(fileNameSave);
+            //RichEditDocumentServer srv1 = new RichEditDocumentServer();
+            //srv1.LoadDocument(fileNameTemp, DocumentFormat.OpenXml);
+            //DevExpress.XtraPrinting.PdfExportOptions options = new DevExpress.XtraPrinting.PdfExportOptions();
+            //options.Compressed = false;
+            //options.ImageQuality = DevExpress.XtraPrinting.PdfJpegImageQuality.Highest;
+            //FileStream pdfFileStream = new FileStream("Document_PDF.pdf", FileMode.Create);
+            //srv1.ExportToPdf(pdfFileStream, options);
+
+            //System.Diagnostics.Process.Start("Document_PDF.pdf");
+
+            //System.Diagnostics.Process.Start(fileNameSave);
             //FileAttachmentsWindowsFormsModule.GetFileDataManager(Application).Open(chungNhan);//Open FileData
+            //PreviewPrint previewPrintWindow = new PreviewPrint();
+            //previewPrintWindow.ShowDialog();
         }
     }
 }

@@ -2,22 +2,33 @@
 <Application Logo="ExpressAppLogo">
   <ActionDesign>
     <Actions>
+      <Action Id="Cancel" ShowItemsOnClick="False" />
       <Action Id="Link" Caption="Link" />
-      <Action Id="PrintCer" ImageName="Electronics_Printer" />
+      <Action Id="PrintCertificate" ImageName="Print" DefaultItemMode="FirstActiveItem" />
     </Actions>
   </ActionDesign>
-  <NavigationItems NavigationStyle="TreeList" ShowImages="False" DefaultChildItemsDisplayStyle="List">
+  <NavigationItems NavigationStyle="TreeList" ShowImages="True" DefaultChildItemsDisplayStyle="List" StartupNavigationItem="NguoiDung_ListView">
     <Items>
-      <Item Id="Default" Caption="THÔNG TIN QUẢN LÝ" ImageName="BO_Document">
+      <Item Id="Default" Caption="MANAGEMENT" ImageName="BO_Dashboard">
         <Items>
-          <Item Id="@30740bc7-d57f-40ac-96e1-ae83a33ffe5e" Caption="Thông Tin Người" IsNewNode="True" />
+          <Item Id="EmployeeRole_ListView" ImageName="BO_User" />
+          <Item Id="MauIn_ListView" ImageName="Print" />
           <Item Id="MyDetails" Removed="True" />
+          <Item Id="NguoiDung_ListView" ImageName="BO_MyDetails" />
+          <Item Id="Printer_ListView" ImageName="PrintDialog" />
+          <Item Id="UserInfo_ListView" ImageName="BO_Employee" />
         </Items>
       </Item>
       <Item Id="Reports" Visible="False" />
+      <Item Id="student" Caption="STUDENT" ImageName="BO_Department" ObjectKey="1" ViewId="" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="MauIn_ListView" ViewId="MauIn_ListView" ObjectKey="" ImageName="Print" IsNewNode="True" />
+          <Item Id="UserInfo_ListView" ViewId="UserInfo_DetailView" ObjectKey="1" ImageName="BO_Employee" IsNewNode="True" />
+        </Items>
+      </Item>
     </Items>
   </NavigationItems>
-  <Options UIType="TabbedMDI" FormStyle="Ribbon" ShowTabImage="False" Skin="The Bezier" Palette="Twenty Gold">
+  <Options UIType="SingleWindowSDI" FormStyle="Ribbon" ShowTabImage="False" Skin="The Bezier" Palette="Neon Lollipop">
     <LayoutManagerOptions EnableLayoutGroupImages="False" />
   </Options>
   <SchemaModules>
@@ -25,13 +36,111 @@
     <SchemaModule Name="SystemWindowsFormsModule" Version="19.1.3.0" IsNewNode="True" />
   </SchemaModules>
   <Views>
-    <ListView Id="NguoiDung_ListView">
+    <DetailView Id="MauIn_DetailView" DefaultFocusedItem="Ten">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100" TextAlignMode="UseParentOptions">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="MauIn" RelativeSize="100">
+              <LayoutGroup Id="MauIn_col1" RelativeSize="55.1219512195122">
+                <LayoutItem Id="id" RelativeSize="12.987012987012987" />
+                <LayoutItem Id="Ten" RelativeSize="9.74025974025974" />
+                <LayoutItem Id="ngayCapNhat" RelativeSize="9.74025974025974" />
+                <LayoutItem Id="fileMau" ViewItem="fileMau" Index="3" RelativeSize="9.74025974025974" IsNewNode="True" />
+                <LayoutGroup Id="lichSuCapNhat_Group" ShowCaption="True" Caption="Printed History" Direction="Vertical" Index="4" RelativeSize="57.79220779220779" TextAlignMode="AlignWithChildren" IsNewNode="True">
+                  <LayoutItem Id="lichSuCapNhat" ViewItem="lichSuCapNhat" Index="0" RelativeSize="100" IsNewNode="True" />
+                </LayoutGroup>
+              </LayoutGroup>
+              <LayoutGroup Id="MauIn_col2" Caption="MauIn_col2" RelativeSize="44.8780487804878" Direction="Vertical">
+                <LayoutItem Id="anhMauIn" ViewItem="anhMauIn" Index="0" RelativeSize="100" CaptionLocation="Top" IsNewNode="True" Removed="True" />
+                <LayoutItem Id="fileMau" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="lichSuCapNhat_Group" TextAlignMode="UseParentOptions" Direction="Horizontal" RelativeSize="11.661807580174926" Caption="Printed History" Removed="True">
+            <LayoutItem Id="lichSuCapNhat" RelativeSize="100" Removed="True" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="MauIn_DetailView_Copy" ClassName="ACIMApp.Module.BusinessObjects.MauIn" DefaultFocusedItem="Ten" IsNewNode="True">
+      <Items IsNewNode="True">
+        <PropertyEditor Id="anhMauIn" PropertyName="anhMauIn" IsNewNode="True" />
+        <PropertyEditor Id="fileMau" PropertyName="fileMau" IsNewNode="True" />
+        <PropertyEditor Id="id" PropertyName="id" IsNewNode="True" />
+        <PropertyEditor Id="lichSuCapNhat" PropertyName="lichSuCapNhat" View="MauIn_lichSuCapNhat_ListView" IsNewNode="True" />
+        <PropertyEditor Id="ngayCapNhat" PropertyName="ngayCapNhat" IsNewNode="True" />
+        <PropertyEditor Id="Ten" PropertyName="Ten" IsNewNode="True" />
+      </Items>
+      <Layout IsNewNode="True">
+        <LayoutGroup Id="Main" Index="0" ShowCaption="False" RelativeSize="100" IsNewNode="True">
+          <LayoutGroup Id="SimpleEditors" Index="0" ShowCaption="False" RelativeSize="100" Caption="SimpleEditors" IsNewNode="True">
+            <LayoutItem Id="anhMauIn" ViewItem="anhMauIn" CaptionLocation="Top" Index="0" RelativeSize="100" IsNewNode="True" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="MauIn_ListView" MasterDetailMode="ListViewAndDetailView" MasterDetailView="MauIn_DetailView_Copy">
       <Columns>
-        <ColumnInfo Id="UserName" Index="1" />
-        <ColumnInfo Id="IsActive" Index="2" />
+        <ColumnInfo Id="fileMau" Index="-1" />
       </Columns>
     </ListView>
-    <DetailView Id="UserInfo_DetailView" EnableLayoutGroupImages="True" DefaultFocusedItem="TenNguoiDung">
+    <ListView Id="NguoiDung_ListView">
+      <Columns>
+        <ColumnInfo Id="thanhVien" Width="266" />
+        <ColumnInfo Id="UserName" Index="1" Width="29" />
+        <ColumnInfo Id="IsActive" Index="2" />
+        <ColumnInfo Id="maTheRFID" Width="36" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Printer_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="Printer" RelativeSize="100" Direction="Horizontal">
+              <LayoutGroup Id="Auto013cfaeb-d818-4962-8171-0a4e41c0aaf2" ShowCaption="False" Caption="" Index="0" RelativeSize="62.841530054644807" IsNewNode="True">
+                <LayoutItem Id="maMay" ViewItem="maMay" Index="0" RelativeSize="8.6206896551724146" IsNewNode="True" />
+                <LayoutItem Id="TenMay" ViewItem="TenMay" Index="1" RelativeSize="6.4655172413793105" IsNewNode="True" />
+                <LayoutItem Id="soGiayHienTai" ViewItem="soGiayHienTai" Index="2" RelativeSize="84.91379310344827" IsNewNode="True" />
+              </LayoutGroup>
+              <SplitterItem Id="SplitterItem1" Index="1" RelativeSize="1.0928961748633881" IsNewNode="True" />
+              <LayoutItem Id="anh" ViewItem="anh" CaptionLocation="Top" Index="2" RelativeSize="36.0655737704918" IsNewNode="True" Removed="True" />
+              <LayoutItem Id="maMay" RelativeSize="37.383177570093459" Removed="True" />
+              <LayoutItem Id="soGiayHienTai" RelativeSize="34.579439252336449" Removed="True" />
+              <LayoutItem Id="TenMay" RelativeSize="28.037383177570092" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="lichSuThemGiay_Group" TextAlignMode="AlignWithChildren" Direction="Vertical" RelativeSize="76.9396551724138" Caption="Lịch Sử Thêm Giấy" Removed="True">
+            <LayoutItem Id="lichSuThemGiay" RelativeSize="100" Index="0" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Printer_DetailView_Image" ClassName="ACIMApp.Module.BusinessObjects.Printer" IsNewNode="True">
+      <Items IsNewNode="True">
+        <PropertyEditor Id="anh" PropertyName="anh" IsNewNode="True" />
+        <PropertyEditor Id="lichSuThemGiay" PropertyName="lichSuThemGiay" View="Printer_lichSuThemGiay_ListView" IsNewNode="True" />
+        <PropertyEditor Id="maMay" PropertyName="maMay" IsNewNode="True" />
+        <PropertyEditor Id="soGiayHienTai" PropertyName="soGiayHienTai" IsNewNode="True" />
+        <PropertyEditor Id="TenMay" PropertyName="TenMay" IsNewNode="True" />
+      </Items>
+      <Layout IsNewNode="True">
+        <LayoutGroup Id="Main" Index="0" ShowCaption="False" RelativeSize="100" IsNewNode="True">
+          <LayoutGroup Id="SimpleEditors" Index="0" ShowCaption="False" RelativeSize="100" IsNewNode="True">
+            <LayoutGroup Id="Printer" Index="0" ShowCaption="False" RelativeSize="100" Caption="Printer" IsNewNode="True">
+              <LayoutItem Id="anh" ViewItem="anh" ShowCaption="" Index="0" RelativeSize="100" CaptionLocation="Top" IsNewNode="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Printer_ListView" MasterDetailMode="ListViewAndDetailView" MasterDetailView="Printer_DetailView_Image">
+      <Columns>
+        <ColumnInfo Id="maMay" Index="0" />
+        <ColumnInfo Id="TenMay" Index="1" />
+        <ColumnInfo Id="soGiayHienTai" Index="2" />
+      </Columns>
+    </ListView>
+    <DetailView Id="UserInfo_DetailView" EnableLayoutGroupImages="True" DefaultFocusedItem="" ClassName="ACIMApp.Module.BusinessObjects.UserInfo">
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
           <LayoutGroup Id="SimpleEditors" RelativeSize="100">

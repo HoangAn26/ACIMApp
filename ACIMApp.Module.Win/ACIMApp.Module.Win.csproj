@@ -195,6 +195,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\FontandIcon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\FontandIcon.Designer.cs">
+      <DependentUpon>FontandIcon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WindowController1.cs">
       <SubType>Component</SubType>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="UserInfo_DetailView" DefaultFocusedItem="TenNguoiDung">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="UserInfo">
+              <LayoutGroup Id="UserInfo_col1">
+                <LayoutItem Id="ghiChu" ViewItem="ghiChu" />
+                <LayoutGroup Id="Auto6164ba3e-260e-413c-b552-9d152d58ff22">
+                  <LayoutItem Id="SDT" ViewItem="SDT" />
+                  <LayoutGroup Id="Auto7405e1f2-b888-4545-b978-4eecf0c409f5">
+                    <LayoutItem Id="MSSV" ViewItem="MSSV" />
+                    <LayoutItem Id="khoa" ViewItem="khoa" />
+                  </LayoutGroup>
+                </LayoutGroup>
+                <LayoutItem Id="ngaySinh" ViewItem="ngaySinh" />
+              </LayoutGroup>
+              <LayoutGroup Id="UserInfo_col2">
+                <TabbedGroup Id="Item3">
+                  <LayoutGroup Id="Item2">
+                    <LayoutItem Id="anh" ViewItem="anh" />
+                  </LayoutGroup>
+                </TabbedGroup>
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

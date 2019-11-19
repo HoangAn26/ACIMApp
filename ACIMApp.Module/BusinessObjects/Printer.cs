@@ -4,6 +4,7 @@ using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
+using DevExpress.Xpo.Metadata;
 using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace ACIMApp.Module.BusinessObjects
     [DefaultClassOptions]
     [Persistent("Printer")]
     [DefaultProperty("TenMay")]
-    [XafDisplayName("Thông Tin Máy In")]
+    [XafDisplayName("Printer Information")]
     public class Printer: XPLiteObject
     {
         public Printer(Session session) : base(session) { }
@@ -29,29 +30,38 @@ namespace ACIMApp.Module.BusinessObjects
 
         int _id;
         [Key(true)]
-        [XafDisplayName("Mã Máy In")]
+        [XafDisplayName("Printer ID")]
         public int maMay
         {
             get => _id;
             set => SetPropertyValue("id", ref _id, value);
         }
         string _tenMay;
-        [XafDisplayName("Tên Máy In")]
+        [XafDisplayName("Printer Name")]
         public string TenMay
         {
             get => _tenMay;
             set => SetPropertyValue("TenMay", ref _tenMay, value);
         }
         int _soGiayHienTai;
-        [XafDisplayName("Số Giấy Hiện Tai")]
+        [XafDisplayName("Current Number of Paper")]
         public int soGiayHienTai
         {
             get => _soGiayHienTai;
             set => SetPropertyValue("soGiayHienTai", ref _soGiayHienTai, value);
         }
-        
+        [Size(SizeAttribute.Unlimited)]
+        [VisibleInListView(false)]
+        [ImageEditor(ListViewImageEditorMode = ImageEditorMode.PictureEdit, DetailViewImageEditorMode = ImageEditorMode.PictureEdit)]
+        [ValueConverter(typeof(ImageValueConverter))]
+        [XafDisplayName("Image")]
+        public Image anh
+        {
+            get { return GetPropertyValue<Image>("anh"); }
+            set { SetPropertyValue<Image>("anh", value); }
+        }
         [Association("MayIn-LanThemGiays")]
-        [XafDisplayName("Lịch Sử Thêm Giấy")]
+        [XafDisplayName("History of Adding Paper")]
         public XPCollection<LanThemGiay> lichSuThemGiay
         {
             get => GetCollection<LanThemGiay>("lichSuThemGiay");

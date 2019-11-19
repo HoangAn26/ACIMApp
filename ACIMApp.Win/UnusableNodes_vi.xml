@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="UserInfo_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="ghiChu" Caption="Mô Tả" />
+        <PropertyEditor Id="anh" Caption="Ảnh Đại Diện" />
+        <PropertyEditor Id="ngaySinh" Caption="Ngày Sinh" />
+        <PropertyEditor Id="SDT" Caption="Số Điện Thoại" />
+        <PropertyEditor Id="khoa" Caption="Khoa" />
+        <PropertyEditor Id="MSSV" Caption="MSSV" />
+        <PropertyEditor Id="gioiTinh" Caption="Giới Tính" />
+        <PropertyEditor Id="TenNguoiDung" Caption="Họ và Tên" />
+        <PropertyEditor Id="STT" Caption="STT" />
+      </Items>
+    </DetailView>
+  </Views>
+</Application>

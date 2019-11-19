@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ACIMApp.Module.BusinessObjects
 {
-    [XafDisplayName("Quyền Nhân Viên")]
+    [XafDisplayName("Account Role")]
     public class EmployeeRole : PermissionPolicyRole, IPermissionPolicyRoleWithUsers
     {
 
